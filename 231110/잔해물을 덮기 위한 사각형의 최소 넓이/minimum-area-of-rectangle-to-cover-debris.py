@@ -22,8 +22,10 @@ for i in range(2001):
             minCol=min(j,minCol)
             maxCol=max(j,maxCol)
 
-ans=0
+
 if exist:
     ans=(maxRow-minRow+1)*(maxCol-minCol+1)
+else:
+    ans=0
 
 print(ans)
