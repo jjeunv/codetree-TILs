@@ -11,7 +11,7 @@ for i in range(n):
         cnt+=1
     maxnum=max(maxnum,cnt)
 
-if maxnum<=1:
+if maxnum<1:
     print(0)
 else:
     print(maxnum)
