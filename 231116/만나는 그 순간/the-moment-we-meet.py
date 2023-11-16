@@ -1,6 +1,6 @@
 N,M=map(int,input().split())
-A=[10000001]*1001
-B=[10000001]*1001
+A=[1000001]*1000001
+B=[1000001]*1000001
 
 At,Ad=1,0
 for _ in range(N):
@@ -29,8 +29,8 @@ for _ in range(M):
     Bt+=time
 
 flag=0
-for i in range(1,1001):
-    if A[i]==10000001 or B[i]==10000001:
+for i in range(1,1000001):
+    if A[i]==1000001 or B[i]==1000001:
         break
     if A[i]==B[i]:
         flag=1
