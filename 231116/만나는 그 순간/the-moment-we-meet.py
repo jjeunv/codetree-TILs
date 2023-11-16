@@ -1,6 +1,6 @@
 N,M=map(int,input().split())
-A=[0]*30
-B=[0]*30
+A=[10000001]*1001
+B=[10000001]*1001
 
 At,Ad=1,0
 for _ in range(N):
@@ -30,10 +30,13 @@ for _ in range(M):
 
 flag=0
 for i in range(1,1001):
+    if A[i]==10000001 or B[i]==10000001:
+        break
     if A[i]==B[i]:
         flag=1
         print(i)
         break
+    
     
 if flag==0:
     print(-1)
