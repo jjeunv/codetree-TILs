@@ -19,20 +19,15 @@ for _ in range(M):
         curB+=1
 
 head=0
-cur=0
 ans=0
 for i in range(1,MAX_T):
     if A[i]>B[i]:
-        cur=1
+        if head==2:
+            ans+=1
+        head=1
     elif A[i]<B[i]:
-        cur=-1 
-    else:
-        continue
-    if head!=cur:
-        ans+=1 
-    head=cur
+        if head==1:
+            ans+=1
+        head=2
 
-if ans!=0:
-    print(ans-1)
-else:
-    print(0)
+print(ans)
