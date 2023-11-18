@@ -26,10 +26,19 @@ for _ in range(m):
             B[cur_B]=B[cur_B-1]-1
         cur_B+=1
 
-ans=0
-for t in range(1,max(cur_A,cur_B)+1):
+if max(cur_A,cur_B)==cur_A:
+    for i in range(cur_B,cur_A):
+        B[i]=B[i-1]
+else:
+    for i in range(cur_A,cur_B):
+        A[i]=A[i-1]
 
+ans=0
+
+for t in range(1,max(cur_A,cur_B)):
+    
     if A[t]==B[t] and A[t-1]!=B[t-1]:
         ans+=1
+
 
 print(ans)
