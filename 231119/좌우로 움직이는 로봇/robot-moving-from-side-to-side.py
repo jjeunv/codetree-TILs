@@ -27,7 +27,8 @@ for _ in range(m):
         cur_B+=1
 
 ans=0
-for t in range(1,MAX_T+1):
+for t in range(1,max(cur_A,cur_B)+1):
+
     if A[t]==B[t] and A[t-1]!=B[t-1]:
         ans+=1
 
