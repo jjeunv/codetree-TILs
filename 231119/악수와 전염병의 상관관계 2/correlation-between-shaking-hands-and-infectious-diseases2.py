@@ -14,7 +14,10 @@ for _ in range(T):
 for t in range(1,maxt+1):
     x,y=time[t]
 
-    if people[x][0]==1 and people[x][1]<K:
+    if people[x][0]==people[y][0]==1:
+        people[x][1]+=1
+        people[y][1]+=1
+    elif people[x][0]==1 and people[x][1]<K:
         people[y][0]=1
         people[x][1]+=1
     elif people[y][0]==1 and people[y][1]<K:
