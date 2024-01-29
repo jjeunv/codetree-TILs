@@ -33,4 +33,42 @@ for j in range(n):
                 print(i+3,j+1)
                 exit()
 
+for i in range(n-4):
+    for j in range(4,n):
+        if grid[i][j]!=0:
+            cnt=1
+            for k in range(1,5):
+                if grid[i][j]==grid[i+k][j-k]:
+                    cnt+=1
+            if cnt==5:
+                if grid[i][j]==1:
+                    print(1)
+                    print(i+3,j-1)
+                    exit()
+                if grid[i][j]==2:
+                    print(2)
+                    print(i+3,j-1)
+                    exit()
+
+for i in range(n-4):
+    for j in range(n-4):
+        if grid[i][j]!=0:
+            cnt=1
+            for k in range(1,5):
+                if grid[i][j]==grid[i+k][j+k]:
+                    cnt+=1
+            if cnt==5:
+                if grid[i][j]==1:
+                    print(1)
+                    print(i+3,j+3)
+                    exit()
+                if grid[i][j]==2:
+                    print(2)
+                    print(i+3,j+3)
+                    exit()
+            
+
+                
+
+
 print(0)
