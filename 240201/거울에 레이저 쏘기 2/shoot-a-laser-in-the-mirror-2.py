@@ -11,7 +11,6 @@ for d in range(4):
         direction[num]=d 
         num+=1
 
-#print(direction)
 def next_direction(m,d):
     if m=='/':
         if d==0 or d==2:
@@ -36,21 +35,15 @@ for i in range(1,4*n+1):
         continue    
     x+=dx[cur_d]
     y+=dy[cur_d]
-#print(coordinate)
+
+
 x,y=coordinate[k]
 cur_d=direction[k]
-ans=1
-i=1
-while True:
-    #print(i,cur_d)
+ans=0
+while in_range(x,y):
     cur_d=next_direction(grid[x][y],cur_d)
-    #print(x,y,grid[x][y],cur_d)
     nx,ny=x+dx[cur_d],y+dy[cur_d]
-    #print(i,nx,ny)
-    if not in_range(nx,ny):
-        print(ans)
-        break 
     x+=dx[cur_d]
     y+=dy[cur_d]
     ans+=1
-    i+=1
+print(ans)
