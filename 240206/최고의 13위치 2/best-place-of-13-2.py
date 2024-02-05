@@ -8,7 +8,7 @@ for i in range(n):
         for k in range(n):
             for l in range(n-2):
                 sum=0
-                if i==k and (j==l or j+1==l or j+2==l) :
+                if i==k and (j-2<=l<=j+2) :
                     continue
                 sum+=(grid[i][j]+grid[i][j+1]+grid[i][j+2]+\
                 grid[k][l]+grid[k][l+1]+grid[k][l+2])
