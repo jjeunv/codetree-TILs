@@ -9,6 +9,9 @@ def check(a,b):
     for i in b:
         if not i in a:
             return False
+    for i in a:
+        if not i in b:
+            return False
     return True
 
 ans=0
@@ -17,6 +20,7 @@ for i in range(n-m+1):
     for j in range(i,i+m):
         num.append(numN[j])
     if check(num,numM):
+
         ans+=1
 
 print(ans)
