@@ -11,7 +11,6 @@ for _ in range(n):
         arr[int(x)]=1
 
 ans=0
-print(arr)
 for i in range(101):
     for j in range(i,101):
         if arr[i]==-1 or arr[j]==-1:
