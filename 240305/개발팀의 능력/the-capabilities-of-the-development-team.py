@@ -17,7 +17,7 @@ for i in range(5):
                 if i==l or i==k or j==k or j==l:
                     continue
                 sum1,sum2,sum3=get_diff(i,j,k,l)
-                if sum1==sum2==sum3:
+                if sum1==sum2 or sum1==sum3 or sum2==sum3:
                     continue
                 flag=1
                 ans=min(ans,max([sum1,sum2,sum3])-min([sum1,sum2,sum3]))
