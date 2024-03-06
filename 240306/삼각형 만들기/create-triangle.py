@@ -25,7 +25,7 @@ for i in range(n):
             if i==j or j==k or i==k:
                 continue
             if check_x(i,j,k) and check_y(i,j,k):
-                ans=max(ans,area(i,j,k))
+                ans=max(ans,area(location[i],location[j],location[k]))
 
 if ans==0:
     print(0)
