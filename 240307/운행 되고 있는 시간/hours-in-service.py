@@ -2,7 +2,7 @@ n=int(input())
 
 work_t=[list(map(int,input().split())) for _ in range(n)]
 
-time=[0]*10
+time=[0]*1001
 
 for t in work_t:
     s,e=t[0],t[1]
