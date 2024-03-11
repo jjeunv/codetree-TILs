@@ -12,7 +12,7 @@ for i in range(n):
                 cnt_price+=price[j]//2
                 num+=1
             else:
-                continue
+                break
         else:
             if cnt_price+price[j]<=b:
                 cnt_price+=price[j]
