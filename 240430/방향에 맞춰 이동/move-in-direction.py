@@ -1,9 +1,7 @@
 x,y=0,0
 dx,dy=[1,0,-1,0],[0,-1,0,1]
 
-N=int(input())
-
-for _ in range(N):
+for _ in range(int(input())):
     direction,num=input().split()
     for _ in range(int(num)):
         if direction=='E':
