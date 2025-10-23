@@ -1,3 +1,10 @@
-const fs =require("fs");
-const input = fs.readFileSync(0).toString().trim();
-console.log(`${input}${input}${input}${input}${input}${input}${input}${input}`);
+
+const fs = require("fs");
+let n = fs.readFileSync(0).toString().trim();
+
+
+let result = "";
+for (let i = 0; i < 8; i++) {
+    result += n;
+}
+console.log(result);
