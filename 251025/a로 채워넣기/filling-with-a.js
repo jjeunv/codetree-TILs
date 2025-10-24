@@ -1,10 +1,9 @@
 const fs = require("fs");
 let input = fs.readFileSync(0).toString().trim();
 
-const fir = input[1];
-const sec = input[input.length-2];
+const fir = input[0];
+const sec = input.slice(2,input.length-2);
+const last = input.slice(input.length-1);
 
-input = input.replace(fir,'a');
-input = input.replace(sec,'a');
 
-console.log(input);
+console.log(fir+'a'+sec+'a'+last);
