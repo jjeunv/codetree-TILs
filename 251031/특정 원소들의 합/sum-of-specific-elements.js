@@ -1,13 +1,22 @@
+// 변수 선언 및 입력
 const fs = require("fs");
-const input = fs.readFileSync(0).toString().trim().split("\n");
+let input = fs.readFileSync(0).toString().trim().split("\n");
 
-let sum =0;
+// 2차원 배열을 구현합니다.
+let arr2d = [];
 
-for(let i=0; i<4; i++){
-    const arr = input[i].split(" ").map(Number);
-    for(let j=0; j<=i; j++){
-        sum+=arr[j];
+// 각 줄마다 정수를 입력받습니다.
+for (let i = 0; i < 4; i++) {
+    arr2d.push(input[i].split(" ").map(Number));
+}
+
+// 색칠된 칸에 있는 원소들의 합을 구합니다.
+let sum = 0;
+for (let i = 0; i < 4; i++) {
+    for (let j = 0; j <= i; j++) {
+        sum += arr2d[i][j];
     }
 }
 
+// 출력
 console.log(sum);
