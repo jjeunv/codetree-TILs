@@ -8,7 +8,7 @@ function printNum(n){
     for(let i=1; i<=n; i++){
         sum+=i;
     }
-    return sum/10;
+    return parseInt(sum/10);
 }
 
-console.log(printNum(n))
+console.log(printNum(n));
