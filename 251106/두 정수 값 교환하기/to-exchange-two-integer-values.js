@@ -9,6 +9,7 @@ function swap(a,b){
 
 }
 
-[n,m] = swap(a,b);
+[n,m] = swap(n,m);
 
-console.log(a,b);
+console.log(n,m);
+
