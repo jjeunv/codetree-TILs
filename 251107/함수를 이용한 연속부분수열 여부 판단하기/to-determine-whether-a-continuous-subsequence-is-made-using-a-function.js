@@ -8,6 +8,9 @@ let b = input[2].split(" ").map(Number);
 // Please Write your code here.
 
 function judge(){
+    if(b.length===1){
+        return false;
+    }
     for(let i=0; i<=a.length-b.length; i++){
         if(a[i]===b[0]){
             for(let j=1; j<b.length; j++){
