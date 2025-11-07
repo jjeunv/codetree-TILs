@@ -9,7 +9,6 @@ function onjeonsu(n){
     if(n%2===0) return false;
     if(n%3===0 && n%9!==0) return false;
     if(n%10===5) return false;
-    if(n===100) return false;
     return true;
 }
 
