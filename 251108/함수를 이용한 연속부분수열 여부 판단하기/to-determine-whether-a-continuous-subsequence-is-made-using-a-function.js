@@ -10,11 +10,14 @@ let b = input[2].split(" ").map(Number);
 function judge(){
     for(let i=0; i<=a.length-b.length; i++){
         if(a[i]===b[0]){
+            let flag=1;
             for(let j=1; j<b.length; j++){
                 if(a[i+j]!==b[j]){
-                    return false;
+                    flag=0;
+                    break;
                 }
             }
+            if(flag===0) continue;
             return true;
         }
     }
