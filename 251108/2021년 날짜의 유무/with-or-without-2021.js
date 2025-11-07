@@ -14,7 +14,7 @@ function judge(m){
     return 31;
 }
 
-if(judge(m)>=d){
+if(judge(m)>=d|| m>12){
     console.log('Yes');
 }else{
     console.log("No");
