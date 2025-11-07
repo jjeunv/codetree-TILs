@@ -11,7 +11,7 @@ function sum(a,c){
 }
 
 function sub(a,c){
-    return a-b;
+    return a-c;
 }
 
 function mul(a,c){
