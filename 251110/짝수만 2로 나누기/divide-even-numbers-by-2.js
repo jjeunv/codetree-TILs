@@ -12,10 +12,10 @@ function solve(arr){
         }
     }
 }
-
-arr = solve(arr);
-
+solve(arr);
 
 for(let elem of arr){
-    process.stdout.write(elem+" ")
+    process.stdout.write(elem+" ");
 }
+
+
