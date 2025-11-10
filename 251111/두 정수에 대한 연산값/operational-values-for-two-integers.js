@@ -11,9 +11,8 @@ function solve(a,b){
         a*=2;
         b+=25;
     }
-    return a,b;
+    return [a,b];
 }
 
-a,b = solve(a,b);
-
+[a,b] = solve(a,b);
 console.log(a,b)
