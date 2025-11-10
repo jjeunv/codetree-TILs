@@ -8,8 +8,7 @@ function swap(a,b){
     return [a,b];
 
 }
-
-let [n,m] = swap(n,m);
+[n,m] = swap(n,m);
 
 console.log(n,m);
 
