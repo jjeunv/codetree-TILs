@@ -22,7 +22,7 @@ solve();
 
 let sum=0;
 for(let elem of arr){
-    sum+=A[elem+1];
+    sum+=A[elem-1];
 }
 
 console.log(sum);
