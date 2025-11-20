@@ -10,4 +10,4 @@ function solve(n){
     return Math.max(solve(n-1), arr[n]);
 }
 
-console.log(solve(n))
+console.log(solve(n-1))
