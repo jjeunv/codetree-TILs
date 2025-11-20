@@ -9,3 +9,5 @@ function solve(n){
     if(n===0) return arr[0];
     return Math.max(solve(n-1), arr[a]);
     }
+
+console.log(solve(n))
