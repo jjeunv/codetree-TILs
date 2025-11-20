@@ -7,7 +7,7 @@ const arr = input[1].split(" ").map(Number);
 
 function solve(n){
     if(n===0) return arr[0];
-    return Math.max(solve(n-1), arr[a]);
-    }
+    return Math.max(solve(n-1), arr[n]);
+}
 
 console.log(solve(n))
