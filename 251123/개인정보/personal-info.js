@@ -14,7 +14,7 @@ for (let i = 0; i < 5; i++) {
   const [name, heightStr, weightStr] = input[i].split(' ');
   const height = Number(heightStr);
   const weight = Number(weightStr);
-  students.push(new Student( name, height, weight ));
+  students.push(new Student( name, height, weight.toFixed(1) ));
 }
 
 
