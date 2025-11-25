@@ -11,7 +11,7 @@ function min(d,h,m){
 
 const res = min(A,B,C)-min(11,11,11);
 
-if(res>0){
+if(res>=0){
     console.log(res);
 }else{
     console.log(-1)
