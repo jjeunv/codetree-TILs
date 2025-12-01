@@ -20,8 +20,8 @@ for(let cmd of commands){
         }
     }else{
         while(num--){
-            idx--;
             arr[idx]+=1;
+            idx--;
         }
     }
 }
