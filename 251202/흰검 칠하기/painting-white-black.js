@@ -5,7 +5,6 @@ const n = Number(input[0]);
 const commands = input.slice(1).map(line => line.split(' '));
 
 const OFFSET = 100;
-// Please Write your code here.
 
 let arr = [];
 let cur =0;
