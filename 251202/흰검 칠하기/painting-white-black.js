@@ -35,6 +35,7 @@ for(let element of arr){
     start+=OFFSET;
     end+=OFFSET;
     for(let i=start; i<=end; i++){
+        if(res[i]===2) continue;
         if(direction==='R'){
             res[i]=0;
             blackCnt[i]++;
@@ -42,21 +43,15 @@ for(let element of arr){
             res[i]=1;
             whiteCnt[i]++;
         }
+        if(blackCnt[i]>=2 && whiteCnt[i]>=2){
+            res[i]=2;
+        }
     }
 }
 
-let grey =0;
-let black=0;
-let white =0;
+let grey =res.filter((e)=>e===2).length;
+let black=res.filter((e)=>e===0).length;
+let white =res.filter((e)=>e===1).length;
 
-for(let i=0; i<100000; i++){
-    if(blackCnt[i]>=2 && whiteCnt[i]>=2){
-        grey++;
-    }else if(res[i]===0){
-        black++;
-    }else if(res[i]===1){
-        white++;
-    }
-}
 
 console.log(white, black, grey)
