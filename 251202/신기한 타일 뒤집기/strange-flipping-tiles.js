@@ -19,13 +19,13 @@ for(let command of commands){
         while(distance>0){
             vertical[cur]=1;
             distance--;
-            cur++;
+            if(distance) cur++;
         }
     }else{
         while(distance>0){
             vertical[cur]=2;
             distance--;
-                        cur--;
+            if(distance) cur--;
         }
     }
 }
