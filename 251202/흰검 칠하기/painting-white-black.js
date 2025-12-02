@@ -4,7 +4,7 @@ const input = fs.readFileSync(0).toString().trim().split('\n');
 const n = Number(input[0]);
 const commands = input.slice(1).map(line => line.split(' '));
 
-const OFFSET = 100;
+const OFFSET = 1000000;
 
 let arr = [];
 let cur =0;
