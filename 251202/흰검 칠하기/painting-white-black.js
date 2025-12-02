@@ -4,7 +4,7 @@ const input = fs.readFileSync(0).toString().trim().split('\n');
 const n = Number(input[0]);
 const commands = input.slice(1).map(line => line.split(' '));
 
-const OFFSET = 1000000;
+const OFFSET = 100000;
 
 let arr = [];
 let cur =0;
@@ -26,9 +26,9 @@ for(let cmd of commands){
     arr.push([start,end, direction]);
 }
 
-let res = new Array(100000).fill(-1);
-let blackCnt = new Array(100000).fill(0);
-let whiteCnt = new Array(100000).fill(0);
+let res = new Array(200000).fill(-1);
+let blackCnt = new Array(200000).fill(0);
+let whiteCnt = new Array(200000).fill(0);
 
 for(let element of arr){
     let [start, end,direction] = element;
