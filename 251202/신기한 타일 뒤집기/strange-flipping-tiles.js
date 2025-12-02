@@ -23,9 +23,9 @@ for(let command of commands){
         }
     }else{
         while(distance>0){
-            cur--;
             vertical[cur]=2;
             distance--;
+                        cur--;
         }
     }
 }
