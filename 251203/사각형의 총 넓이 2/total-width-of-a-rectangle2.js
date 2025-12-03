@@ -11,7 +11,11 @@ const MAX_NUM = 200;
 let arr = Array.from({length: MAX_NUM+1}, ()=> Array(MAX_NUM+1).fill(0));
 
 for(let rect of rects){
-    const [x1, y1, x2, y2] = rect;
+    let [x1, y1, x2, y2] = rect;
+    x1+=OFFSET;
+    y1+=OFFSET;
+    x2+=OFFSET;
+    y2+=OFFSET;
     for(let i=x1; i<x2; i++){
         for(let j=y1; j<y2; j++){
             arr[i][j] =1;
