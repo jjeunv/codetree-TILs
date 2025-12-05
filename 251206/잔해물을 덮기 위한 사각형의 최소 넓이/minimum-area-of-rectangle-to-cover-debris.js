@@ -38,4 +38,8 @@ for(let i=x1; i<x2; i++){
     }
 }
 
-console.log((x-x1+1)*(y-y1+1))
+if(x===0 && y===0){
+    console.log(0)
+}else{
+    console.log((x-x1+1)*(y-y1+1))
+}
