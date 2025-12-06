@@ -42,4 +42,8 @@ for(let i=x1; i<x2; i++){
     }
 }
 
-console.log((maxR-x1+1) * (maxC-y1+1))
+if(maxR===0 && maxC===0){
+    console.log(0)
+}else{
+   console.log((maxR-x1+1) * (maxC-y1+1)) 
+}
