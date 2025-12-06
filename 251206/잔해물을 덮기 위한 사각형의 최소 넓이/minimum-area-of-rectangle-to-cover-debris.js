@@ -31,19 +31,31 @@ for(let i=x1; i<x2; i++){
 x1+=OFFSET; y1+=OFFSET;
 x2+=OFFSET; y2+=OFFSET;
 
-let maxR = 0;
-let maxC = 0;
+let r = 0;
 for(let i=x1; i<x2; i++){
+    let cnt=0
     for(let j=y1; j<y2; j++){
         if(grid[i][j]===1){
-            maxR = Math.max(maxR,i);
-            maxC = Math.max(maxC,j)
+            cnt++;
         }
     }
+    r = Math.max(r,cnt);
+}
+
+let r = 0;
+for(let i=x1; i<x2; i++){
+    let cnt=0
+    for(let j=y1; j<y2; j++){
+        if(grid[i][j]===1){
+            cnt++;
+        }
+    }
+    r = Math.max(r,cnt);
 }
 
 if(maxR===0 && maxC===0){
     console.log(0)
 }else{
-   console.log((maxR-x1+1) * (maxC-y1+1)) 
+    console.log(maxR, maxC)
+   console.log((maxR-OFFSET+1) * (maxC-y1+1)) 
 }
