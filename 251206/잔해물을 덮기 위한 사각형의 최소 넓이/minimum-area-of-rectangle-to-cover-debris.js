@@ -31,7 +31,7 @@ for(let i=x1; i<x2; i++){
 x1+=OFFSET; y1+=OFFSET;
 x2+=OFFSET; y2+=OFFSET;
 
-let r = 0;
+let c = 0;
 for(let i=x1; i<x2; i++){
     let cnt=0
     for(let j=y1; j<y2; j++){
@@ -39,23 +39,18 @@ for(let i=x1; i<x2; i++){
             cnt++;
         }
     }
-    r = Math.max(r,cnt);
+    c = Math.max(c,cnt);
 }
 
-let r = 0;
-for(let i=x1; i<x2; i++){
+let r = 0 ;
+for(let i=y1; i<y2; i++){
     let cnt=0
-    for(let j=y1; j<y2; j++){
-        if(grid[i][j]===1){
+    for(let j=x1; j<x2; j++){
+        if(grid[j][i]===1){
             cnt++;
         }
     }
     r = Math.max(r,cnt);
 }
 
-if(maxR===0 && maxC===0){
-    console.log(0)
-}else{
-    console.log(maxR, maxC)
-   console.log((maxR-OFFSET+1) * (maxC-y1+1)) 
-}
+console.log(r*c)
