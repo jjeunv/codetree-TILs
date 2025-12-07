@@ -18,6 +18,7 @@ for(let i=0; i<n; i++){
         c=1;
     }
 }
+cnt.push(c);
 
 
 console.log(Math.max(...cnt))
