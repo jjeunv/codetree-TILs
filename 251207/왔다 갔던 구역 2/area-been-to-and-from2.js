@@ -9,17 +9,14 @@ let cur =1000;
 for(let line of lines){
     let [distance, direction]= line;
     distance=Number(distance);
-    while(distance>0){
+    for(let i=0; i<distance; i++){
+      if(direction==='R'){
         grid[cur]++;
-        distance--;
-        if(direction==='R'){
-                cur++;
-        }else{
-                cur--;
-        }
+        cur++;
+      }else{
+        cur--;
+        grid[cur]++;
+      }
     }
-    
-// console.log(grid.slice(980,1004).join(' '), cur)
 }
-
 console.log(grid.filter((e)=>e>=2).length)
