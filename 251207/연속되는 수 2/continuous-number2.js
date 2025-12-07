@@ -17,4 +17,8 @@ for(let i=0; i<n-1; i++){
     }
 }
 
+if(n===1){
+    console.log(1)
+}else{
 console.log(Math.max(...cnt))
+}
