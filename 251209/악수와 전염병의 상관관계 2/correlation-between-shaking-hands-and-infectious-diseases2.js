@@ -15,17 +15,21 @@ cnt[P]=K;
 
 for(let shake of shakes){
     let [t, a, b] = shake;
-    if(cnt[a]!==0 && cnt[b]!==0){
+    if(cnt[a]>0 && cnt[b]>0){
         cnt[a]--;
         cnt[b]--;
-    }else if(cnt[a]!==0){
+    }else if(cnt[a]>0){
         cnt[a]--;
-        arr[b]=1;
-        cnt[b]=K;
-    }else if(cnt[b]!==0){
+        if(arr[b]!==1){
+            arr[b]=1;
+            cnt[b]=K;
+        }
+    }else if(cnt[b]>0){
         cnt[b]--;
-        arr[a]=1;
-        cnt[a]=K;
+        if(arr[a]!==1){
+            cnt[a]=K;
+            arr[a]=1;
+        }
     }
 }
 
