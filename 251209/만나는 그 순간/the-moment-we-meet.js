@@ -56,7 +56,6 @@ let flag = false;
 let ans = 0;
 for(let i=1; i<timeA+1; i++){
     if(arrA[i]===arrB[i]){
-        console.log(arrA[i],arrB[i])
         flag=true;
         ans=i;
         break;
