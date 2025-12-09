@@ -5,7 +5,7 @@ const [n,m] = input[0].split(' ').map(Number);
 const movesA = input.slice(1,1+n).map((move)=>move.split(' '));
 const movesB = input.slice(1+n).map((move)=>move.split(' '));
 
-const MAX_R = 2000000;
+const MAX_R = 1000000;
 
 const arrA = Array(MAX_R+1).fill(0);
 const arrB = Array(MAX_R+1).fill(0);
