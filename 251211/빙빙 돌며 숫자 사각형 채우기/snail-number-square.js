@@ -1,7 +1,7 @@
 const fs = require("fs");
 const [n,m] = fs.readFileSync(0).toString().trim().split(' ').map(Number)
 
-const arr = Array.from({length: n},()=>Array(m).fill(0));
+const arr = Array.from({length: n+1},()=>Array(m+1).fill(0));
 
 
 const dx = [0,1,0,-1], dy = [1,0,-1,0];
