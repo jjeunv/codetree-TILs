@@ -12,20 +12,15 @@ function isValid(x,y){
 
 let x=0, y=0;
 let dir=0;
-let cur = 1;
+arr[x][y] =1;
 
-arr[x][y]=cur;
-for(let i=1; i<n; i++){
-    for(let j=1; j<m; j++){
-        let nx = x+dx[dir], ny = y+dy[dir];
-        if(isValid(nx, ny) && arr[nx][ny]===0){
-            arr[nx][ny]=cur;
-            cur++;
-            x=nx, y=ny;
-        }else{
-            dir= (dir+1)%4;
-        }
+for(let i=2; i<=n*m; i++){
+    let nx = x+dx[dir], ny = y+dy[dir];
+    if(!isValid(nx,ny) || arr[nx][ny]!==0){
+        dir = (dir+1)%4;
     }
+    x += dx[dir], y += dy[dir];
+    arr[x][y] = i;
 }
 
 for(let row of arr){
