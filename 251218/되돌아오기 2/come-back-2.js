@@ -8,6 +8,8 @@ const dx = [0,1,0,-1], dy=[1,0,-1,0];
 let x = 0, y =0;
 let dir = 3;
 let t =0;
+
+function solve(){
 for(let i=0; i<commands.length; i++){
     const c = commands[i];
     if(c==='L'){
@@ -20,9 +22,12 @@ for(let i=0; i<commands.length; i++){
     }
     t++;
     if(x===0 && y===0){
-        break;
+        return t;
     }
 }
+return -1
+}
 
-console.log(t)
+
+console.log(solve())
 
