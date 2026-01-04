@@ -18,7 +18,11 @@ for(let i=0; i<n*m; i++){
     const nx = x+dx[dir], ny = y+dy[dir];
     const c = String.fromCharCode(code);
     arr[x][y] = c;
-    code++;
+    if(c==='Z'){
+        code = 'A'.charCodeAt(0);
+    }else{
+        code++;
+    }
 
     if(isRange(nx, ny) && arr[nx][ny]===0){
         x = nx, y = ny;
