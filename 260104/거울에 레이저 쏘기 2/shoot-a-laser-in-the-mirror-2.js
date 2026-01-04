@@ -18,12 +18,12 @@ for(let i=0; i<n; i++){
     cur++;
 }
 
-for(let i=0; i<n; i++){
+for(let i=n-1; i>=0; i--){
     startArr[cur] = [3, n-1, i];
     cur++;
 }
 
-for(let i=0; i<n; i++){
+for(let i=n-1; i>=0; i--){
     startArr[cur] = [0, i, 0];
     cur++;
 }
