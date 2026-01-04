@@ -19,7 +19,7 @@ for(let i=0; i<n; i++){
 }
 
 for(let i=0; i<n; i++){
-    startArr[cur] = [3, n-i, i];
+    startArr[cur] = [3, n-1, i];
     cur++;
 }
 
@@ -29,8 +29,10 @@ for(let i=0; i<n; i++){
 }
 
 // console.log(mirror);
+// console.log(startArr)
 
 let [curDir, x, y] = startArr[startNum];
+// console.log(curDir, x, y)
 
 function isRange(x,y){
     return 0<=x && x<n && 0<=y && y<n;
