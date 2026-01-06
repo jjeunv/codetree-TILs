@@ -1,13 +1,13 @@
 const fs = require("fs");
 const input = fs.readFileSync(0).toString().trim().split('\n');
 
-const a = input[0];
+const a = input[0].split('').map(Number);
 
 // Please Write your code here.
 
 function changeBinary(a, idx){
-    let b = a.split('').map(Number);
-    const n = a[idx]===0 ? 1 : 0;
+    let b = [...a]
+    const n = a[idx]=== 0 ? 1 : 0;
     b.splice(idx,1,n);
     return b;
 }
