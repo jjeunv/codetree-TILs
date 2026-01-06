@@ -19,7 +19,7 @@ function carry(arr){
         for(let j=0; j<nums[i].length; j++){
             sum+=nums[i][j];
         }
-        if(sum>10){
+        if(sum>=10){
             return -1;
         }
     }
