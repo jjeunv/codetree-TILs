@@ -5,16 +5,10 @@ const a = input[0];
 
 // Please Write your code here.
 
-function changeBinary(n){
-    let b = n.split('').map(Number);
-    let idx = 0;
-    for(let i=0; i<b.length; i++){
-        if(b[i]===0){
-            idx=i;
-            break;
-        }
-    }
-    b.splice(idx,1,1);
+function changeBinary(a, idx){
+    let b = a.split('').map(Number);
+    const n = a[idx]===0 ? 1 : 0;
+    b.splice(idx,1,n);
     return b;
 }
 
@@ -27,4 +21,11 @@ function getDecimal(arr){
     return num;
 }
 
-console.log(getDecimal(changeBinary(a)))
+let ans = 0;
+for(let i=0; i<a.length; i++){
+    const changed = changeBinary(a, i);
+    const decimalNum = getDecimal(changed);
+    ans = Math.max(ans, decimalNum);
+}
+
+console.log(ans)
