@@ -24,7 +24,7 @@ for(let i=0; i<19; i++){
         }
 
         // 오른쪽 방향
-        if(isAllSame([arr[i][j],arr[i][j+1],arr[i][2],arr[i][j+3],arr[i][j+4]])){
+        if(isAllSame([arr[i][j],arr[i][j+1],arr[i][j+2],arr[i][j+3],arr[i][j+4]])){
             winner = arr[i][j];
             [row, col] = [i+1, j+3];
             break;
