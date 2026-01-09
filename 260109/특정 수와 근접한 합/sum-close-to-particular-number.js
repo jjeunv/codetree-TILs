@@ -9,7 +9,7 @@ const arr = input[1].split(' ').map(Number);
 let sum = 0;
 arr.forEach((n)=>sum+=n);
 
-let ans = sum;
+let ans = Number.MAX_SAFE_INTEGER;
 
 for(let i=0; i<n; i++){
     for(let j=i+1; j<n; j++){
