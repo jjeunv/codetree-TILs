@@ -11,7 +11,7 @@ for(let i=0; i<people.length; i++){
 }
 
 let ans = 0;
-for(let i = 1; i<=n; i++){
+for(let i = 1; i<20001-k; i++){
   let sum = 0;
   for(let j=i; j<=i+k; j++){
     sum+=arr[j];
@@ -20,4 +20,5 @@ for(let i = 1; i<=n; i++){
 }
 
 console.log(ans)
+
 
