@@ -5,38 +5,46 @@ const [n, m] = input[0].split(" ").map(Number);
 const arr1 = input[1].split(" ").map(Number);
 const arr2 = input[2].split(" ").map(Number);
 
-const beauty = [];
+// 아름다운 수
+const beauties = [];
 for(let i=0; i<m; i++){
-    beauty.push([...arr2]);
-    const cur = [...arr2];
-    beauty.push(cur.reverse());
-    const num = arr2.shift(); 
-    arr2.push(num);
+    for(let j=0; j<2; j++){
+        beauties.push([...arr2]);
+        arr2.reverse()
+    }
+    arr2.push(arr2.shift())
 }
 
-
+function isSame(arr){
+    for(let beauty of beauties){
+        let flag = true;
+        for(let i=0; i<m; i++){
+            if(arr[i]!==beauty[i]){
+                flag = false;
+                break;
+            }
+        }
+        if(flag){
+            return true;
+        }
+    }
+    return false;
+}
 
 let ans = 0;
-// Please write your code here.
+
+console.log(beauties);
+console.log('-----------------------------')
 for(let i=0; i<n-m+1; i++){
     const curArr = [];
     for(let j=i; j<i+m; j++){
         curArr.push(arr1[j]);
     }
-     for(let b of beauty){
-        let flag = true;
-        for(let k=0; k<b.length; k++){
-
-            if(curArr[k]!==b[k]){
-                flag = false;
-                break;
-            }
-        }
-        if(flag){ 
-            ans++;
-            break;
-        }
-     }
+    if(isSame(curArr)){
+        console.log(curArr)
+        ans++;
+    }
 }
+
 
 console.log(ans)
