@@ -6,7 +6,7 @@ const candy = input.slice(1).map((c)=>c.split(' ').map(Number));
 const arr = Array(101).fill(0);
 for(let c of candy){
     const [cnt, pos] = c;
-    arr[pos] = cnt;
+    arr[pos] += cnt;
 }
 
 let ans = 0;
