@@ -3,7 +3,7 @@ const input = fs.readFileSync(0).toString().trim().split('\n');
 const [n, k] = input[0].split(' ').map(Number);
 const nums = input.slice(1, n + 1).map(Number);
 
-let ans = 0;
+let ans = -1;
 
 for(let i=0; i<n; i++){ 
     let num1 = nums[i]; // 폭탄의 번호
