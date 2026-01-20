@@ -4,6 +4,9 @@ const [n, b] = input[0].split(' ').map(Number);
 const arr = input.slice(1).map((s)=>s.split(' ').map(Number));
 
 arr.sort((a,b)=>{
+    if(a[0]+a[1]===b[0]+b[1]){
+        return b[0]-a[0]
+    }
     return (a[0]+a[1])-(b[0]+b[1]);
 })
 
