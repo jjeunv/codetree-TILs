@@ -9,7 +9,7 @@ for(let i=0; i<n; i++){
     let num1 = nums[i]; // 폭탄의 번호
     for(let j=i+1; j<n; j++){
         let num2 = nums[j]; // 비교할 폭탄의 번호
-        if(num1===num2 && j-i===k){
+        if(num1===num2 && j-i<=k){
             ans = Math.max(ans, num1);
         }
     }
