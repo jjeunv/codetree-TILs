@@ -4,8 +4,7 @@ const [n, b] = input[0].split(' ').map(Number);
 const arr = input.slice(1).map((s)=>s.split(' ').map(Number));
 
 arr.sort((a,b)=>{
-    if(a[0]!==b[0]) return a[0]-b[0];
-    return a[1]-b[1];
+    return (a[0]/2+a[1])-(b[0]/2+b[1]);
 })
 
 let ans = 0;
