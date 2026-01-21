@@ -5,7 +5,7 @@ const n = Number(input[0]);
 const h = input.slice(1, 1 + n).map(Number);
 
 let ans = 0;
-for(let i=0; i<=10; i++){
+for(let i=0; i<=1000; i++){
     const arr = Array(n+1).fill(0);
     for(let j=0; j<n; j++){
         if(h[j]>i){
