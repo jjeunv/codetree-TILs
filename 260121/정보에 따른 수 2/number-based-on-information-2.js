@@ -19,7 +19,7 @@ let ans =0;
 
 for(let i=a; i<=b; i++){
     let d1= 1000, d2 = 1000;
-    for(let j=a; j<=b; j++){
+    for(let j=1; j<=1000; j++){
         if(arrS[j]===1){
             d1 = Math.min(d1, Math.abs(i-j));
         }
