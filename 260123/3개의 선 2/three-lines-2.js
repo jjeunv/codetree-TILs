@@ -9,21 +9,56 @@ let ans = 0;
 outer: for(let i=0; i<=10; i++){
     for(let j=0; j<=10; j++){
         for(let k=0; k<=10; k++){
-            if(i===k || j===k) continue;
-            let isValid = true;
-            for(let l=0; l<n; l++){
-                const [x,y] = points[l];
-                if(x!==i && x!==j && x!==k && y!==i && y!==j && y!==k){
-                    isValid = false;
-                    break;
+            let success = true;
+
+            points.forEach(([x,y])=>{
+                if(x===i || x===j || x===k){
+                    return;
                 }
+                success = false;
+            })
+            if(success){
+                ans = 1;
+                break outer;
             }
-            if(isValid){
-                ans=1;
+
+            success = true;
+            points.forEach(([x,y])=>{
+                if(x===i || x===j || y===k){
+                    return;
+                }
+                success = false;
+            })
+            if(success){
+                ans = 1;
+                break outer;
+            }
+
+            success = true;
+            points.forEach(([x,y])=>{
+                if(x===i || y===j || y===k){
+                    return;
+                }
+                success = false;
+            })
+            if(success){
+                ans = 1;
+                break outer;
+            }
+
+            success = true;
+            points.forEach(([x,y])=>{
+                if(y===i || y===j || y===k){
+                    return;
+                }
+                success = false;
+            })
+            if(success){
+                ans = 1;
                 break outer;
             }
         }
     }
 }
 
-console.log(ans)
+console.log(ans);
