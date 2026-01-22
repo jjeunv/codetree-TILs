@@ -10,9 +10,7 @@ for(let i=1; i<=3; i++){
     arr[i]=1;
     for(let j=0; j<n; j++){
         const [a,b,c] = commands[j];
-        const numA = arr[a];
-        arr[a] = arr[b];
-        arr[b] = numA;
+        [arr[a], arr[b]] = [arr[b], arr[a]]
         if(arr[c]===1){
             cnt++;
         }
