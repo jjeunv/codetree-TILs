@@ -13,10 +13,10 @@ outer: for(let i=0; i<=10; i++){
             let isValid = true;
             for(let l=0; l<n; l++){
                 const [x,y] = points[l];
-                if((x!==i && x!==k)&&(y!==j && y!==k)){
+                if(x!==i && x!==j && x!==k && y!==i && y!==j && y!==k){
                     isValid = false;
                     break;
-                } 
+                }
             }
             if(isValid){
                 ans=1;
