@@ -24,7 +24,7 @@ function isValid(num){
 
 let ans;
 
-for(let i=n; i>=Math.max(arr[0], arr[arr.length-1]); i--){
+for(let i=100; i>=Math.min(arr[0], arr[arr.length-1]); i--){
     if(isValid(i)){
         ans = i;
     }
