@@ -10,6 +10,8 @@ function isValid(num){
             cnt.push(i);
         }
     }
+    if(cnt.length===0) return false;
+    
     let cur = 0;
     for(let i=0; i<cnt.length; i++){
         if(cnt[i]-cur<=k){
