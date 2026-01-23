@@ -10,7 +10,6 @@ function isValid(num){
             cnt.push(i);
         }
     }
-    if(cnt.length<2) return false;
 
     let cur = 0;
     for(let i=0; i<cnt.length; i++){
@@ -22,9 +21,13 @@ function isValid(num){
     }
     return true;
 }
-for(let i=1; i<=n; i++){
+
+let ans;
+
+for(let i=n; i>=Math.max(arr[0], arr[arr.length-1]); i--){
     if(isValid(i)){
-        console.log(i);
-        break;
+        ans = i;
     }
 }
+
+console.log(ans)
