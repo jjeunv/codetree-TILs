@@ -22,7 +22,7 @@ for(let i=0; i<n; i++){
     if(cnt===0) continue;
     if(maxCnt<=cnt){
         maxCnt = cnt;
-        ans = num;
+        ans = Math.max(ans,num)
     }
 }
 
