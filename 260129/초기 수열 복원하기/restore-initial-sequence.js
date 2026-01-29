@@ -18,7 +18,7 @@ for(let i=1; i<=n; i++){
         ans.push(startNum, curNum);
         for(let k=1; k<sums.length; k++){
             let num = sums[k]-curNum;
-            if(curNum>0 && curNum<=n){
+            if(num>0 && num<=n){
                 ans.push(num);
                 curNum = num;
             }else{
