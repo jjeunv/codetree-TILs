@@ -6,14 +6,18 @@ const cmd = input.slice(1).map((c)=>c.split(' '));
 const ans = [];
 
 for(let i='A'.charCodeAt(); i<'A'.charCodeAt()+n; i++){
+    const [c, cnt] = cmd[p-1];
+    if(p-1!==0){
+        const [prevC, prevCnt]= cmd[p-2];
+        if(prevC.charCodeAt()===i && prevCnt === cnt){
+            continue;
+        }
+    }
+
     let isValid = true;
     for(let j=p-1; j<n; j++){
         const [c, cnt] = cmd[j];
-        if(Number(cnt)===0){
-            isValid = false;
-            break;
-        }
-        if(c.charCodeAt()===i){
+        if(Number(cnt)===0 || c.charCodeAt()===i){
             isValid = false;
             break;
         }
