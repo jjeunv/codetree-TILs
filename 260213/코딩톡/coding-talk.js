@@ -9,6 +9,10 @@ for(let i='A'.charCodeAt(); i<'A'.charCodeAt()+n; i++){
     let isValid = true;
     for(let j=p-1; j<n; j++){
         const [c, cnt] = cmd[j];
+        if(Number(cnt)===0){
+            isValid = false;
+            break;
+        }
         if(c.charCodeAt()===i){
             isValid = false;
             break;
