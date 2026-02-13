@@ -10,7 +10,7 @@ if(Number(cmd[p-1][1]===0)){
 let result = "";
 
 for(let i=0; i<n; i++){
-    const person = String.fromCharCode('A'.charCodeAt()+i);
+    const person = String.fromCharCode('A'.charCodeAt(0)+i);
     let read = false;
 
     cmd.forEach(([c, u])=>{
