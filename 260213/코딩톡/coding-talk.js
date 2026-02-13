@@ -3,7 +3,7 @@ const input = fs.readFileSync(0).toString().trim().split("\n");
 const [n, m, p] = input[0].split(' ').map(Number);
 const cmd = input.slice(1).map((c)=>c.split(' '));
 
-if(Number(cmd[p-1][1]===0)){
+if(Number(cmd[p-1][1])===0){
     process.exit();
 }
 
