@@ -3,30 +3,26 @@ const input = fs.readFileSync(0).toString().trim().split("\n");
 const [n, m, p] = input[0].split(' ').map(Number);
 const cmd = input.slice(1).map((c)=>c.split(' '));
 
-const ans = [];
+if(Number(cmd[p-1][1]===0)){
+    process.exit();
+}
 
-for(let i='A'.charCodeAt(); i<'A'.charCodeAt()+n; i++){
-    const [c, cnt] = cmd[p-1];
-    if(p-1!==0){
-        const [prevC, prevCnt]= cmd[p-2];
-        if(prevC.charCodeAt()===i && prevCnt === cnt){
-            continue;
-        }
-    }
+let result = "";
 
-    let isValid = true;
-    for(let j=p-1; j<m; j++){
-        const [c, cnt] = cmd[j];
-        if(Number(cnt)===0 || c.charCodeAt()===i){
-            isValid = false;
-            break;
+for(let i=0; i<n; i++){
+    const person = String.fromCharCode('A'.charCodeAt()+i);
+    let read = false;
+
+    cmd.forEach(([c, u])=>{
+        u = Number(u);
+        if(u>=Number(cmd[p-1][1]) && c === person){
+            read = true;
         }
-    }
-    if(isValid){
-        ans.push(String.fromCharCode(i));
+    })
+
+    if(!read){
+        result+=`${person} `;
     }
 }
 
-ans.sort();
-
-console.log(ans.join(' '))
+console.log(result.trim());
