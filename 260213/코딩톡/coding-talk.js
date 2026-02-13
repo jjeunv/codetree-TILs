@@ -15,7 +15,7 @@ for(let i='A'.charCodeAt(); i<'A'.charCodeAt()+n; i++){
     }
 
     let isValid = true;
-    for(let j=p-1; j<n; j++){
+    for(let j=p-1; j<m; j++){
         const [c, cnt] = cmd[j];
         if(Number(cnt)===0 || c.charCodeAt()===i){
             isValid = false;
