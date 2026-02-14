@@ -24,10 +24,12 @@ function isValid(x,y){
 function bombed(currNum, num){
     const [x, y] = bomb[currNum-1];
     if(num===1){
-        for(let i=0; i<n; i++){
-            if(arr[i][y]===0){
-                arr[i][y]= currNum;
+        let loc = x-2;
+        for(let i=0; i<5; i++){
+            if(isValid(loc,y) && arr[loc][y]===0){
+                arr[loc][y]=currNum;
             }
+            loc+=1;        
         }
     }else if(num===2){
         let dir=0;
@@ -60,10 +62,12 @@ function bombed(currNum, num){
 function reset(currNum, num){
     const [x, y] = bomb[currNum-1];
     if(num===1){
-        for(let i=0; i<n; i++){
-            if(arr[i][y]===currNum){
-                arr[i][y]=0;
+        let loc = x-2;
+        for(let i=0; i<5; i++){
+            if(isValid(loc,y) && arr[loc][y]===currNum){
+                arr[loc][y]=0;
             }
+            loc+=1;
         }
     }else if(num===2){
         let dir = 0;
