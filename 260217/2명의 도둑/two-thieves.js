@@ -1,82 +1,60 @@
 const fs = require("fs");
 const input = fs.readFileSync(0).toString().trim().split('\n');
 
-const [n, m, c] = input[0].split(' ').map(Number);
-const weights = input.slice(1, 1 + n).map(line => line.split(' ').map(Number));
+const [n,m,c] = input[0].split(' ').map(Number);
+const weight = input.slice(1).map((line)=>line.split(' ').map(Number));
+let a = [];
+let maxVal = 0;
 
-let res = 0;
-
-let ans=0;
-let weight;
-let arr = []
-
-function calMaxWeight(cnt){
-    if(cnt===m){
-        let sum1 = 0;
-        arr.forEach((n)=>sum1+=n);
-        let sum2 = 0;
-        arr.forEach((n)=>sum2+=n*n)
-        if(sum1<=c){
-            ans = Math.max(ans, sum2);
+function findMaxSum(currIdx, currWeight, currVal){
+    if(currIdx === m){
+        if(currWeight <= c){
+            maxVal = Math.max(maxVal, currVal);
         }
         return;
     }
 
-    arr.push(weight[cnt]);
-    calMaxWeight(cnt+1);
-    arr.pop();
+    findMaxSum(currIdx+1, currWeight, currVal);
 
-    calMaxWeight(cnt+1);
+    findMaxSum(currIdx+1, currWeight+a[currIdx], currVal+a[currIdx]*a[currIdx]);
 }
 
-function isValid(x1, y1, x2, y2){
-    if(x1===x2){
-        if((y1<=y2 && y2<y1+m)||(y2<=y1 && y1<y2+m)){
-            return false;
-        }
+function findMax(sx, sy){
+    a = weight[sx].slice(sy, sy+m);
+    maxVal = 0;
+    findMaxSum(0,0,0);
+    return maxVal;
+}
+
+function intersect(a,b,c,d){
+    return !(b<c || d<a);
+}
+
+function possible(sx1, sy1, sx2, sy2){
+    if(sy1+m-1>=n || sy2+m-1 >=n){
+        return false;
     }
-    if(y1>n-m || y2>n-m){
+    if(sx1 !== sx2){
+        return true;
+    }
+    if(intersect(sy1, sy1+m-1, sy2, sy2+m-1)){
         return false;
     }
     return true;
 }
 
-
-function findMaxWeight(x1,y1,x2,y2){
-    let sum = 0;
-    weight=[];
-    ans=0;
-    for(let i=y1; i<y1+m; i++){
-        weight.push(weights[x1][i]);
-    }
-
-    calMaxWeight(0);
-        // console.log(x1, y1, x2, y2,weight, ans)
-    sum+=ans;
-
-    ans=0;
-    weight=[];
-    for(let i=y2; i<y2+m; i++){
-        weight.push(weights[x2][i]);
-    }
-
-    calMaxWeight(0);
-            // console.log(x1, y1, x2, y2,weight, ans)
-    sum+=ans;
-    res = Math.max(sum,res)
-    // console.log(x1,y1,x2,y2, res)
-}
-
-for(let i=0; i<n; i++){
-    for(let j=0; j<n; j++){
-        for(let k=0; k<n; k++){
-            for(let l=0; l<n; l++){
-                if(isValid(i,j,k,l)){
-                    findMaxWeight(i,j,k,l);
-                }
-            }
+let ans = 0;
+for (let sx1 = 0; sx1 < n; sx1++) {
+  for (let sy1 = 0; sy1 < n; sy1++) {
+    for (let sx2 = 0; sx2 < n; sx2++) {
+      for (let sy2 = 0; sy2 < n; sy2++) {
+        if(possible(sx1,sy1,sx2,sy2)){
+            const sum = findMax(sx1,sy1)+ findMax(sx2, sy2);
+            ans = Math.max(ans, sum);
         }
+      }
     }
+  }
 }
 
-console.log(res);
+console.log(ans);
