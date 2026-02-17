@@ -3,45 +3,31 @@ const input = fs.readFileSync(0).toString().trim().split('\n');
 
 const [n, m, k] = input[0].split(' ').map(Number);
 const nums = input[1].split(' ').map(Number);
+const pieces = Array(k).fill(1);
 
-const selected = [];
-
+let ans = 0;
 
 function calc(){
-    const position = Array(k+1).fill(1);
-    for(let i=0; i<n; i++){
-        position[selected[i]]+=nums[i];
+    let score = 0;
+    for(const piece of pieces){
+        score+= piece>=m ? 1 : 0;
     }
-
-    let sum=0;
-    position.forEach((num)=>{
-        if(num>=m){
-            sum++;
-        }
-    })
-    
-    return sum;
+    return score;
 }
 
-let ans =0;
+function findMax(cnt){
+    ans = Math.max(ans, calc());
 
-function choose(cnt){
-    if(cnt===n){
-        const res = calc();
-        ans = Math.max(ans, res); 
-        // console.log(selected, position, res)      
-        return;
-    }
+    if(cnt===n) return;
 
-    for(let i=1; i<=k; i++){
-        // if(position[i]>=m){
-        //     continue;
-        // }
-        selected.push(i);
-        choose(cnt+1);
-        selected.pop();
+    for(let i=0; i<k; i++){
+        if(pieces[i]>=m) continue;
+
+        pieces[i] += nums[cnt];
+        findMax(cnt+1);
+        pieces[i] -= nums[cnt];
     }
 }
 
-choose(0);
+findMax(0);
 console.log(ans);
