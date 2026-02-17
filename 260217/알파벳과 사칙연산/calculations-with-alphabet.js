@@ -5,7 +5,7 @@ const expression = input[0];
 
 const alphabet=[];
 const symbol = [];
-const nums = [];
+const match_nums = [];
 
 for(let i=0; i<expression.length; i++){
     const num = expression[i].charCodeAt();
@@ -15,10 +15,15 @@ for(let i=0; i<expression.length; i++){
         symbol.push(expression[i]);
     }
 }
-
 function calc(){
-    const arr = [...nums];
+
+}
+function calc(){
+    const arr = [];
     const sym = [...symbol];
+    for(let i=0; i<alphabet.length; i++){
+        arr.push(match_nums[alphabet[i].charCodeAt()-'a'.charCodeAt()]);
+    }
     while(sym.length!==0){
         const a = arr.shift();
         const b = arr.shift();
@@ -44,15 +49,15 @@ function calc(){
 let ans = Number.MIN_SAFE_INTEGER;
 
 function chooseNumber(cnt){
-    if(cnt===alphabet.length){
+    if(cnt===6){
         ans = Math.max(ans, calc());
         return;
     }
 
     for(let i=1; i<=4; i++){
-        nums.push(i);
+        match_nums.push(i);
         chooseNumber(cnt+1);
-        nums.pop();
+        match_nums.pop();
     }
 }
 
