@@ -9,7 +9,7 @@ const nums = [];
 
 for(let i=0; i<expression.length; i++){
     const num = expression[i].charCodeAt();
-    if('a'.charCodeAt()<=num && num<='z'.charCodeAt()){
+    if('a'.charCodeAt()<=num && num<='f'.charCodeAt()){
         alphabet.push(expression[i]);
     }else{
         symbol.push(expression[i]);
@@ -17,12 +17,10 @@ for(let i=0; i<expression.length; i++){
 }
 
 function calc(){
-    const arr = [...nums];
-    const sym = [...symbol];
-    while(sym.length!==0){
-        const a = arr.shift();
-        const b = arr.shift();
-        const s = sym.shift()
+    while(symbol.length!==0){
+        const a = nums.shift();
+        const b = nums.shift();
+        const s = symbol.shift()
         let res;
 
         switch (s){
@@ -36,16 +34,13 @@ function calc(){
                 res = a*b;
                 break;
         }
-        arr.unshift(res);
+        nums.
     }
-    return arr.shift();
 }
-
-let ans = 0;
 
 function chooseNumber(cnt){
     if(cnt===alphabet.length){
-        ans = Math.max(ans, calc());
+
         return;
     }
 
@@ -55,6 +50,3 @@ function chooseNumber(cnt){
         nums.pop();
     }
 }
-
-chooseNumber(0);
-console.log(ans);
