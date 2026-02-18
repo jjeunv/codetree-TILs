@@ -15,8 +15,8 @@ function calc(){
 
 let ans = 0;
 
-function solve(x, cnt){
-    if(cnt===n){
+function solve(x){
+    if(x===n){
         ans = Math.max(ans, calc());
         return;
     }
@@ -26,13 +26,13 @@ function solve(x, cnt){
             arr.push(grid[x][i]);
             visited[i]=true;
 
-            solve(x+1, cnt+1);
+            solve(x+1);
 
             arr.pop();
             visited[i]=false;
         }
 }
 
-solve(0, 0);
+solve(0);
 
 console.log(ans);
