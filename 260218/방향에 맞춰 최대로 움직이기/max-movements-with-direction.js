@@ -13,7 +13,7 @@ function isRange(x,y){
 }
 
 function canGo(x,y,prevNum){
-    return inRange(x,y) && num[x][y]>prevNum;
+    return isRange(x,y) && num[x][y]>prevNum;
 }
 const ans = 0;
 function findMax(x, y, cnt){
