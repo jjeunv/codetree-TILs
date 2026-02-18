@@ -6,18 +6,18 @@ const a = input[1].split(' ').map(Number);
 
 let ans = 0;
 
-function calc(cnt, value){
+function calc(idx, cnt, value){
     if(cnt===m){
         ans = Math.max(ans, value);
         return;
     }
 
-    for(let i=0; i<n; i++){
-        calc(cnt+1, value^a[i]);
-        calc(cnt+1, value);
-    }
+    if(idx===n) return;
+
+    calc(idx+1, cnt+1, value^a[idx]);
+    calc(idx+1, cnt, value);
 }
 
-calc(0, 0);
+calc(0, 0, 0);
 
 console.log(ans);
