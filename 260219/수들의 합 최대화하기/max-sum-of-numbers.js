@@ -5,8 +5,7 @@ const n = Number(input[0]);
 const grid = input.slice(1, n + 1).map(line => line.split(' ').map(Number));
 
 const arr = [];
-const visited_x = Array(n).fill(false);
-const visited_y = Array(n).fill(false);
+const visited = Array(n).fill(false);
 
 function calc(){
     let sum = 0;
@@ -16,30 +15,24 @@ function calc(){
 
 let ans = 0;
 
-function solve(cnt){
+function solve(x, cnt){
     if(cnt===n){
         ans = Math.max(ans, calc());
         return;
     }
 
     for(let i=0; i<n; i++){
-        if(visited_x[i]) continue;
-        for(let j=0; j<n; j++){
-            if(visited_y[j]) continue;
+        if(visited[i]) continue;
+            arr.push(grid[x][i]);
+            visited[i]=true;
 
-            arr.push(grid[i][j]);
-            visited_x[i]=true;
-            visited_y[j]=true;
-
-            solve(cnt+1);
+            solve(x+1, cnt+1);
 
             arr.pop();
-            visited_x[i]=false;
-            visited_y[j]=false; 
+            visited[i]=false;
         }
-    }
 }
 
-solve(0);
+solve(0, 0);
 
 console.log(ans);
