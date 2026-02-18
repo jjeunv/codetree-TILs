@@ -9,14 +9,16 @@ const visited = Array(n).fill(false);
 let ans = Number.MAX_SAFE_INTEGER;
 
 function solve(idx, cnt, value){
+    process.stdout.write(idx+' -> ');
     if(cnt===n-1){
         ans = Math.min(ans, value+cost[idx][0]);
         return;
     }
 
-    for(let i=1; i<4; i++){
+    for(let i=1; i<n; i++){
         if(i===idx) continue;
         if(visited[i]) continue;
+        if(cost[idx][i]===0) continue;
 
         visited[i] = true;
         solve(i, cnt+1, value+cost[idx][i]);
