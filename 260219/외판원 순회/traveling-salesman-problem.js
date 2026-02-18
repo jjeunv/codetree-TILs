@@ -9,8 +9,8 @@ const visited = Array(n).fill(false);
 let ans = Number.MAX_SAFE_INTEGER;
 
 function solve(idx, cnt, value){
-    process.stdout.write(idx+' -> ');
     if(cnt===n-1){
+        console.log(value, value+cost[idx][0])
         ans = Math.min(ans, value+cost[idx][0]);
         return;
     }
