@@ -23,8 +23,9 @@ function solve(cnt){
     }
 
     for(let i=0; i<n; i++){
+        if(visited_x[i]) continue;
         for(let j=0; j<n; j++){
-            if(visited_x[i] || visited_y[j]) continue;
+            if(visited_y[j]) continue;
 
             arr.push(grid[i][j]);
             visited_x[i]=true;
