@@ -10,12 +10,12 @@ let ans = Number.MAX_SAFE_INTEGER;
 
 function solve(idx, cnt, value){
     if(cnt===n-1){
+        if(cost[idx][0]===0) return;
         ans = Math.min(ans, value+cost[idx][0]);
         return;
     }
 
     for(let i=1; i<n; i++){
-        if(i===idx) continue;
         if(visited[i]) continue;
         if(cost[idx][i]===0) continue;
 
