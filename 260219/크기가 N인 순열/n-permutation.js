@@ -21,8 +21,6 @@ function solve(cnt){
         arr.pop();
         visited[i]= false;
     }
-    return;
-
 }
 
 solve(0);
