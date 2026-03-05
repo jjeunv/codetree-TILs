@@ -9,7 +9,8 @@ arr[2] = 1;
 arr[3] = 1;
 
 for(let i=4; i<=n; i++){
-    arr[i] = arr[i-2]+arr[i-3];
+    arr[i] = (arr[i-2]+arr[i-3])%10007;
+
 }
 
-console.log(arr[n]%10007);
+console.log(arr[n])
