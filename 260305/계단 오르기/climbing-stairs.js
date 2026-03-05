@@ -14,4 +14,4 @@ for(let i=4; i<=n; i++){
     arr[i] = arr[i-2]+arr[i-3];
 }
 
-console.log(arr[n]);
+console.log(arr[n]%10007);
