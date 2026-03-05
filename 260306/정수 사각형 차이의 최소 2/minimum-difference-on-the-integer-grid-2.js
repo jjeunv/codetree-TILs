@@ -42,8 +42,14 @@ for(let i=1; i<n; i++){
 
         if(sub1<sub2){
             dp[i][j] = [min1, max1, sub1];
-        }else{
+        }else if(sub1>sub2){
             dp[i][j] = [min2, max2, sub2];
+        }else{
+            if(max1>max2){
+                 dp[i][j] = [min2, max2, sub2];
+            }else{
+                    dp[i][j] = [min1, max1, sub1];
+            }
         }
     }
 }
