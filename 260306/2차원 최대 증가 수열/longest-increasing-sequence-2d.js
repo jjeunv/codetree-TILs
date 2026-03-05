@@ -24,10 +24,11 @@ for(let i=0; i<n; i++){
     }
 }
 
-let ans = -1;
-
-for(let r of dp){
-    ans = Math.max(...r)
+let ans = INT_MIN;
+for (let i = 0; i < n; i++) {
+    for (let j = 0; j < m; j++) {
+        ans = Math.max(ans, dp[i][j]);
+    }
 }
 
-console.log(ans)
+console.log(ans);
