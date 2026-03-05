@@ -24,7 +24,7 @@ for(let i=0; i<n; i++){
     }
 }
 
-let ans = INT_MIN;
+let ans = -1;
 for (let i = 0; i < n; i++) {
     for (let j = 0; j < m; j++) {
         ans = Math.max(ans, dp[i][j]);
