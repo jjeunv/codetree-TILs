@@ -5,6 +5,9 @@ const n = Number(input[0]);
 const grid = input.slice(1, n + 1).map(line => line.split(' ').map(Number));
 const visited = Array.from({length:n}, ()=>Array(n).fill(false));
 
+let cnt = 0;
+const people = [];
+
 function isRange(x,y){
     return 0<=x && x<n && 0<=y && y<n;
 }
@@ -30,14 +33,12 @@ function dfs(x, y){
     }
 }
 
-let town = 0;
-const people = [];
+
 
 for(let i=0; i<n; i++){
     for(let j=0; j<n; j++){
-        if(grid[i][j]===1 && visited[i][j]===false){
+        if(canGo(i, j)){
             visited[i][j] = true;
-            town+=1;
             cnt=1;
             dfs(i, j);
             people.push(cnt);
@@ -45,7 +46,8 @@ for(let i=0; i<n; i++){
     }
 }
 
-console.log(town);
+console.log(people.length);
+
 people.sort((a,b)=>a-b);
 for(let p of people){
     console.log(p);
