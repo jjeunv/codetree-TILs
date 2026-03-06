@@ -29,9 +29,12 @@ function dfs(x,y){
 }
 
 for(let [x,y] of startPoints){
-    cnt++;
-    visited[x][y] = true;
-    dfs(x, y);
+    if(canGo(x-1,y-1)){
+        visited[x-1][y-1] = true;
+        cnt++;
+        dfs(x-1, y-1);
+
+    }
 }
 
 console.log(cnt);
