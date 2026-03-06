@@ -11,6 +11,7 @@ const arr = Array.from({length:n+1}, ()=>Array(n+1).fill(0));
 
 for(let [s,e] of edges){
     arr[s][e] = 1;
+    arr[e][s] = 1;
 }
 
 const visited = Array(n+1).fill(false);
@@ -28,5 +29,4 @@ function dfs(vertex){
 
 visited[1] = true;
 dfs(1);
-
 console.log(ans)
