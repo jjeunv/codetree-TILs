@@ -97,7 +97,7 @@ function needUpdate(bestPos, newPos){
     if(newX === bestX){
         return newY<bestY;
     }
-    return newX<newY;
+    return newX<bestX;
 }
 function move(){
     initializeVisited();
@@ -116,6 +116,13 @@ function move(){
                 bestPos = newPos;
             }
         }
+    }
+
+    if(bestPos[0]===-1 && bestPos[1]===-1){
+        return false;
+    }else{
+        currCell = bestPos;
+        return true;
     }
 
 }
