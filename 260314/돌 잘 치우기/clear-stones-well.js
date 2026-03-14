@@ -15,6 +15,10 @@ function isRange(x,y){
     return 0<=x && x<n && 0<=y && y<n;
 }
 
+function isValid(x,y){
+    return isRange(x,y) && grid[x][y]===0 && !visited[x][y];
+}
+
 function initialize(){
     for(let i=0; i<n; i++){
         for(let j=0; j<n; j++){
@@ -23,11 +27,29 @@ function initialize(){
     }
 }
 
+function calc(){
+    let cnt = 0;
+    for(let i=0; i<n; i++){
+        for(let j=0; j<n; j++){
+            if(visited[i][j]) cnt++;
+        }
+    }
+    return cnt;
+}
+
 function bfs(){
     initialize();
-    
+
     selectedPoints.forEach(([r,c])=>{
-        grid[r-1][c-1] = 0;
+        grid[r][c] = 0;
+    })
+
+    const queue = [];
+    let head = 0;
+
+    startPoints.forEach(([x,y])=>{
+        visited[x-1][y-1] = true;
+        queue.push([x-1,y-1]);
     })
 
     while(head<queue.length){
@@ -36,22 +58,15 @@ function bfs(){
 
         for(let dir=0; dir<dx.length; dir++){
             const nx = x+dx[dir], ny = y+dy[dir];
-            if(!isRange(nx,ny)) continue;
-
-            if(grid[nx][ny]===0 && !visited[nx][ny][cnt]){
-                visited[nx][ny][cnt] = true;
-                queue.push([nx,ny,cnt]);
-            }
-
-            if(grid[nx][ny]===1 && cnt<m && !visited[nx][ny][cnt+1]){
-                visited[nx][ny][cnt+1] = true;
-                queue.push([nx,ny,cnt+1]);
+            if(isValid(nx,ny)){
+                visited[nx][ny] = true;
+                queue.push([nx,ny]);
             }
         }
     }
 
     selectedPoints.forEach(([r,c])=>{
-        grid[r-1][c-1] = 1;
+        grid[r][c] = 1;
     })
 }
 
@@ -59,7 +74,8 @@ let ans = 0;
 
 function findMaxCnt(idx, cnt){
     if(cnt===m){
-        ans = Math.max(ans, bfs());
+        bfs();
+        ans = Math.max(ans, calc());
         return;
     }
 
@@ -79,5 +95,5 @@ for(let i=0; i<n; i++){
         }
     }
 }
-
-console.log(findMaxCnt())
+findMaxCnt(0,0)
+console.log(ans)
