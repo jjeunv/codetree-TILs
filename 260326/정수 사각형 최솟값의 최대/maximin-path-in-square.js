@@ -19,5 +19,4 @@ for (let i = 1; i < n; i++) {
     }
 }
 
-console.log(dp)
 console.log(dp[n - 1][n - 1]);
