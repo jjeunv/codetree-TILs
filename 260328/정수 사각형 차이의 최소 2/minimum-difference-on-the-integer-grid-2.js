@@ -1,67 +1,70 @@
 const fs = require("fs");
 const input = fs.readFileSync(0).toString().trim().split('\n');
-const n = Number(input[0]);
-const grid = input.slice(1).map(l => l.split(' ').map(Number));
-const dp = Array.from({ length: n }, () => Array(n).fill(0));
+
 const INT_MAX = Number.MAX_SAFE_INTEGER;
+const MAX_R = 100;
+
+// 변수 선언 및 입력
+const n = Number(input[0]);
+const num = input.slice(1, n + 1).map(line => line.split(' ').map(Number));
+const dp = Array.from(Array(n), () => Array(n).fill(0));
+
+let ans = INT_MAX;
 
 function initialize() {
+    // 전부 INT_MAX로 초기화합니다.
     for (let i = 0; i < n; i++) {
         for (let j = 0; j < n; j++) {
-            dp[i][j] = 0;
+            dp[i][j] = INT_MAX;
         }
     }
 
-    dp[0][0] = grid[0][0];
+    // 시작점의 경우 dp[0][0] = num[0][0]으로 초기값을 설정해줍니다.
+    dp[0][0] = num[0][0];
 
-    for (let i = 1; i < n; i++) {
-        dp[0][i] = Math.max(dp[0][i - 1], grid[0][i]);
-        dp[i][0] = Math.max(dp[i - 1][0], grid[i][0])
-    }
-
-    for (let i = 1; i < n; i++) {
-        dp[0][i] = Math.max(dp[0][i - 1], grid[0][i]);
-        dp[i][0] = Math.max(dp[i - 1][0], grid[i][0])
-    }
-
-    for (let i = 0; i < n; i++) {
-        console.log(dp[i]);
-    }
-    console.log()
 }
 
-function findMax(minValue) {
+function solve(lowerBound) {
+    // lowerBound 미만의 값은 사용할 수 없도록
+    // num값을 변경해줍니다.
     for (let i = 0; i < n; i++) {
         for (let j = 0; j < n; j++) {
-            if (grid[i][j] < minValue) {
-                dp[i][j] = INT_MAX;
+            if (num[i][j] < lowerBound) {
+                num[i][j] = INT_MAX;
             }
         }
     }
 
-    for (let i = 0; i < n; i++) {
-        console.log(dp[i]);
-    }
-    console.log()
+    // DP 초기값 설정
+    initialize();
+
+    // 탐색하는 위치의 위에 값과 좌측 값 중에 작은 값과
+    // 해당 위치의 숫자 중에 최댓값을 구해줍니다.
     for (let i = 1; i < n; i++) {
         for (let j = 1; j < n; j++) {
-            dp[i][j] = Math.max(Math.min(dp[i - 1][j], dp[i][j - 1]), grid[i][j])
+            dp[i][j] = Math.max(Math.min(dp[i - 1][j], dp[i][j - 1]), num[i][j]);
         }
     }
 
     return dp[n - 1][n - 1];
 }
 
-let ans = INT_MAX;
-for (let minValue = 1; minValue <= Math.min(grid[0][0], grid[n - 1][n - 1]); minValue++) {
-    initialize();
+// 최솟값을 k라고 가정했을 때
+// lowerBound 이상의 수들만 사용하여
+// 이동한다는 조건하에서
+// 최댓값을 최소로 만드는 DP 문제를 풀어줍니다.
+for (let lowerBound = 1; lowerBound <= MAX_R; lowerBound++) {
+    const upperBound = solve(lowerBound);
 
-    const maxValue = findMax(minValue);
+    // 다 진행했음에도 여전히 INT_MAX라면
+    // 그러한 이동이 불가능하다는 뜻이므로
+    // 패스합니다.
+    if (upperBound === INT_MAX) {
+        continue;
+    }
 
-    if (maxValue === INT_MAX) continue;
-
-    ans = Math.min(ans, maxValue - minValue);
-    console.log(minValue, maxValue)
+    // 답을 갱신합니다.
+    ans = Math.min(ans, upperBound - lowerBound);
 }
 
 console.log(ans);
