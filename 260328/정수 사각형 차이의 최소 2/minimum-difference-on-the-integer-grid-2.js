@@ -11,6 +11,23 @@ function initialize() {
             dp[i][j] = 0;
         }
     }
+
+    dp[0][0] = grid[0][0];
+
+    for (let i = 1; i < n; i++) {
+        dp[0][i] = Math.max(dp[0][i - 1], grid[0][i]);
+        dp[i][0] = Math.max(dp[i - 1][0], grid[i][0])
+    }
+
+    for (let i = 1; i < n; i++) {
+        dp[0][i] = Math.max(dp[0][i - 1], grid[0][i]);
+        dp[i][0] = Math.max(dp[i - 1][0], grid[i][0])
+    }
+
+    for (let i = 0; i < n; i++) {
+        console.log(dp[i]);
+    }
+    console.log()
 }
 
 function findMax(minValue) {
@@ -22,12 +39,10 @@ function findMax(minValue) {
         }
     }
 
-    dp[0][0] = grid[0][0];
-    for (let i = 1; i < n; i++) {
-        dp[0][i] = Math.max(dp[0][i - 1], grid[0][i]);
-        dp[i][0] = Math.max(dp[i - 1][0], grid[i][0])
+    for (let i = 0; i < n; i++) {
+        console.log(dp[i]);
     }
-
+    console.log()
     for (let i = 1; i < n; i++) {
         for (let j = 1; j < n; j++) {
             dp[i][j] = Math.max(Math.min(dp[i - 1][j], dp[i][j - 1]), grid[i][j])
@@ -37,7 +52,7 @@ function findMax(minValue) {
     return dp[n - 1][n - 1];
 }
 
-let ans = 0;
+let ans = INT_MAX;
 for (let minValue = 1; minValue <= Math.min(grid[0][0], grid[n - 1][n - 1]); minValue++) {
     initialize();
 
@@ -45,7 +60,8 @@ for (let minValue = 1; minValue <= Math.min(grid[0][0], grid[n - 1][n - 1]); min
 
     if (maxValue === INT_MAX) continue;
 
-    ans = Math.max(ans, maxValue - minValue);
+    ans = Math.min(ans, maxValue - minValue);
+    console.log(minValue, maxValue)
 }
 
 console.log(ans);
