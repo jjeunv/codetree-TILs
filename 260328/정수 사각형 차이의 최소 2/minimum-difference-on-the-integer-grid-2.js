@@ -22,6 +22,15 @@ function initialize() {
     // 시작점의 경우 dp[0][0] = num[0][0]으로 초기값을 설정해줍니다.
     dp[0][0] = num[0][0];
 
+    // 최좌측 열의 초기값을 설정해줍니다.
+    for (let i = 1; i < n; i++) {
+        dp[i][0] = Math.max(dp[i - 1][0], num[i][0]);
+    }
+
+    // 최상단 행의 초기값을 설정해줍니다.
+    for (let j = 1; j < n; j++) {
+        dp[0][j] = Math.max(dp[0][j - 1], num[0][j]);
+    }
 }
 
 function solve(lowerBound) {
