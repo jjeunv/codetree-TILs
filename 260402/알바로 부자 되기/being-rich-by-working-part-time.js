@@ -15,7 +15,7 @@ for (let i = 0; i < n; i++) {
         if (arr[j][1] >= arr[i][0]) {
             dp[i] = Math.max(dp[i], dp[j])
         } else if (arr[j][1] < arr[i][0]) {
-            dp[i] = Math.max(dp[i], arr[i][2] + dp[j])
+            dp[i] = Math.max(dp[i], arr[i][2] + arr[j][2])
         }
     }
 }
