@@ -14,7 +14,7 @@ for (let i = 0; i < n; i++) {
     }
 }
 
-for (let i = n-1; i >=0; i--) {
+for (let i = n - 1; i >= 0; i--) {
     for (let j = i + 1; j < n; j++) {
         if (arr[i] > arr[j]) {
             dec[i] = Math.max(dec[i], dec[j] + 1)
@@ -22,7 +22,6 @@ for (let i = n-1; i >=0; i--) {
     }
 }
 
-console.log(inc);
 let ans = 0;
 for (let i = 0; i < n; i++) {
     ans = Math.max(ans, inc[i] + dec[i] - 1)
