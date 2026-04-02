@@ -23,7 +23,7 @@ for (let i = 0; i < n; i++) {
 let ans = 0;
 
 for (let row of dp) {
-    ans = Math.max(...row)
+    ans = Math.max(ans,Math.max(...row))
 }
 
 console.log(ans);
