@@ -9,8 +9,8 @@ let INT_MAX = Number.MAX_SAFE_INTEGER;
 const dp = Array(m + 1).fill(INT_MAX);
 dp[0] = 0;
 
-for (let i = 1; i <= m; i++) {
-    for (let j = n - 1; j >= 0; j--) {
+for (let i = m; i >=0; i--) {
+    for (let j = 0; j <n; j++) {
         if (i >= arr[j]) {
             dp[i] = Math.min(dp[i], dp[i - arr[j]] + 1)
         }
