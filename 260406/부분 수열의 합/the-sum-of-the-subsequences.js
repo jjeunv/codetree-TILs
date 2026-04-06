@@ -11,7 +11,7 @@ dp[0][0] = true;
 
 function isTrue() {
     for (let i = 1; i <= n; i++) {
-        for (let j = 1; j <= m; j++) {
+        for (let j = 0; j <= m; j++) {
             dp[i][j] = dp[i - 1][j]
 
             if (j >= coin[i]) {
