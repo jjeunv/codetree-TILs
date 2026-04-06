@@ -11,8 +11,13 @@ for (let i = 1; i <= n; i++) {
     for (let j = 1; j <= m; j++) {
         if (j >= w) {
             dp[i][j] = Math.max(dp[i - 1][j], dp[i - 1][j - w] + v)
+        }else{
+            dp[i][j] = dp[i-1][j]
         }
     }
 }
 
+// for(let row of dp){
+//     console.log(row.join(' '))
+// }
 console.log(dp[n][m])
