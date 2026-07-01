@@ -6,14 +6,12 @@ vector<int> arr;
 int n;
 
 void redix_sort(){
-    for(int pos=0; pos<6; pos++){
-        int pow_of_10 =1;
-        for(int k=0; k<pos; k++) pow_of_10 *= 10;
+    int pow =1;
 
+    for(int pos=0; pos<6; pos++){
         vector<vector<int>> arr_new(10);
         for(int i=0; i<n; i++){
-
-            int digit = (arr[i]/pow_of_10)%10;
+            int digit = (arr[i]/pow)%10;
             arr_new[digit].push_back(arr[i]);
         }
         vector<int> store_arr;
@@ -23,6 +21,7 @@ void redix_sort(){
             }
         }
         arr=store_arr;
+        pow*=10;
     }
 }
 int main(){
