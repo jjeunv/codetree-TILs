@@ -4,10 +4,11 @@ using namespace std;
 
 void bubbleSort(vector<int>& arr){
     bool sorted;
+    int end = arr.size()-1;
 
     do{
         sorted = true;
-        for(int i=0; i<arr.size()-1; i++){
+        for(int i=0; i<end; i++){
             if(arr[i]>arr[i+1]){
                 int tmp=arr[i];
                 arr[i] = arr[i+1];
@@ -15,6 +16,7 @@ void bubbleSort(vector<int>& arr){
                 sorted = false;
             }
         }
+        end--;
     }while(!sorted);
 }
 
