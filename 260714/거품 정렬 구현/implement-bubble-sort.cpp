@@ -4,6 +4,7 @@ using namespace std;
 
 void bubbleSort(vector<int>& arr, int n){
     bool sorted;
+
     do{
         sorted=true;
         for(int i=0; i<n-1; i++){
@@ -14,6 +15,7 @@ void bubbleSort(vector<int>& arr, int n){
                 sorted = false;
             }
         }
+        n--;
     }while(!sorted);
 }
 int main(){
