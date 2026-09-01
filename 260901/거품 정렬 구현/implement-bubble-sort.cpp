@@ -1,16 +1,12 @@
 #include <iostream>
+#define MAX_N 100
+
 using namespace std;
 
-int main(){
-    int arr[101];
 
-    int n; cin>>n;
-    for(int i=0; i<n; i++){
-        cin>>arr[i];
-    }
 
+void BubbleSort(int arr[],  int n){
     bool sorted = true;
-
     do{
         sorted = true;
         for(int i=0; i<n-1; i++){
@@ -22,8 +18,22 @@ int main(){
             }
         }
     }while(!sorted);
+}
+
+int main(){
+    int n;
+    int arr[MAX_N];
+    cin>>n;
+
+    for(int i=0; i<n; i++){
+        cin>>arr[i];
+    }
+
+    BubbleSort(arr, n);
 
     for(int i=0; i<n; i++){
         cout<<arr[i] <<" ";
     }
+
+    return 0;
 }
