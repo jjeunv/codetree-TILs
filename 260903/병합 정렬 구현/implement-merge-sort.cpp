@@ -1,10 +1,10 @@
 #include <iostream>
-#include <vector>
+#define MAX_N 100000
 using namespace std;
 
-void merge(vector<int>& arr,int low,int mid,int high){
-    vector<int> merged_arr(high-low+1);
-    int i=low, j=mid+1, k=0;
+void Merge(int arr[],int low,int mid,int high){
+    int merged_arr[MAX_N];
+    int i=low, j=mid+1, k=low;
 
     while(i<=mid && j<=high){
         if(arr[i]<=arr[j]){
@@ -31,17 +31,17 @@ void merge(vector<int>& arr,int low,int mid,int high){
         j++;
     }
 
-    for(int i=low; i<=high; i++){
-        arr[i]=merged_arr[i-low];
+    for(int k=low; k<=high; k++){
+        arr[k]=merged_arr[k];
     }
 }
 
-void merge_sort(vector<int>& arr,int low,int high){
+void MergeSort(int arr[],int low,int high){
     if(low<high){
         int mid = (low+high)/2;
-        merge_sort(arr, low, mid);
-        merge_sort(arr, mid+1, high);
-        merge(arr, low, mid, high);
+        MergeSort(arr, low, mid);
+        MergeSort(arr, mid+1, high);
+        Merge(arr, low, mid, high);
     }
 }
 
@@ -49,14 +49,13 @@ int main(){
     int n;
     cin>>n;
 
-    vector<int> arr;
+    int arr[MAX_N];
 
     for(int i=0; i<n; i++){
-        int num; cin>>num;
-        arr.push_back(num);
+        cin>>arr[i];
     }
 
-    merge_sort(arr,0,n-1);
+    MergeSort(arr,0,n-1);
 
     for(int i=0; i<n; i++){
         cout<<arr[i]<<" ";
