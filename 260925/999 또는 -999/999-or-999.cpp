@@ -8,10 +8,7 @@ int main() {
     int min = num;
     int max = num;
 
-    while(true){
-        if(num==999 || num==-999){
-            break;
-        }
+    while(num!=999 && num!=-999){
         if(min > num){
             min = num;
         }
