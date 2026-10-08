@@ -1,15 +1,13 @@
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
-int PrintMax(int n, int arr[], int max){
-    if(n==-1){
-        return max;
+int PrintMax(int n, int arr[]){
+    if(n==0){
+        return arr[0];
     }
 
-    if(max < arr[n]){
-        max = arr[n];
-    }
-    return PrintMax(n-1, arr, max);
+    return max(PrintMax(n-1, arr), arr[n]);
 }
 
 int main() {
@@ -21,6 +19,6 @@ int main() {
         cin >> arr[i];
     }
 
-    cout << PrintMax(n-1, arr, 0);
+    cout << PrintMax(n-1, arr);
     return 0;
 }
