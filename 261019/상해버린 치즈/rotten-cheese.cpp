@@ -39,11 +39,6 @@ int main() {
             }
         }
 
-        // for(int j=1; j<=n; j++){
-        //     cout << cnt[j]<<" ";
-        // }
-        // cout <<endl;
-
         for(int k=0; k<s; k++){
             int p = sick[k].first;
             int t = sick[k].second;
@@ -53,17 +48,11 @@ int main() {
             }
         }
 
-        // for(int i=1; i<=n; i++){
-        //     cout << cnt[i]<<" ";
-        // }
-        // cout <<endl;
-
         if(flag){
             int count = 0;
             for(int i=1; i<=n; i++){
                 if(cnt[i]!=0) count++;
             }
-            // cout <<"i: "<<i<<", count: "<<count<<endl;
             ans = max(ans, count);
         }
     }
