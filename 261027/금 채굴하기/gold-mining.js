@@ -8,13 +8,26 @@ function getArea(k) {
     return Math.pow(k, 2) + Math.pow(k + 1, 2);
 }
 
-function getNumOfGold(x, y, k) {
-    let numOfGold = 0;
+function isRange(x, y){
+    return 0<=x && x<n && 0<=y && y<n;
+}
 
-    for (let i = 0; i < n; i++) {
-        for (let j = 0; j < n; j++) {
-            if (Math.abs(x - i) + Math.abs(y - j) <= k) {
-                numOfGold += grid[i][j];
+function getNumOfGold(x, y, k) {
+    const dx = [1, 1, -1, -1];
+    const dy = [-1, 1, 1, -1];
+
+    let numOfGold = grid[x][y];
+
+    for(let curK=1; curK<=k; curK++){
+        let curX=x-curK, curY=y;
+        for(let dir=0; dir<4; dir++){
+            for(let step=0; step<curK; step++){
+                if(isRange(curX, curY)){
+                    numOfGold += grid[curX][curY];
+                }
+
+                curX += dx[dir];
+                curY += dy[dir];
             }
         }
     }
