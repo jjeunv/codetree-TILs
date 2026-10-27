@@ -2,51 +2,45 @@ const fs = require("fs");
 const input = fs.readFileSync(0).toString().trim().split('\n');
 
 const [n, m] = input[0].split(' ').map(Number);
-const arr = input.slice(1).map((line)=>line.split(' ').map(Number));
+const grid = input.slice(1).map((line)=>line.split(' ').map(Number));
+let seq = Array(n).fill(0);
 
-// 가로(행)
-function isHappyRow(x){
-    let curCntNum = 1;
+function isHappySequence(){
+    let [curCount, maxCount] = [1, 1];
 
-    for(let y=0; y<n-1; y++){
-        if(arr[x][y] === arr[x][y+1]){
-            curCntNum++;
+    for(let i=1; i<n; i++){
+        if(seq[i-1]===seq[i]){
+            curCount++;
         }else{
-            curCntNum = 1;
-        }
-        
-        if(curCntNum >= m) return true;
-    }
-
-    return false;
-}
-
-// 세로(열)
-function isHappyCol(y){
-    let curCntNum = 1;
-
-    for(let x=0; x<n-1; x++){
-        if(arr[x][y]===arr[x+1][y]){
-            curCntNum++;
-        }else{
-            curCntNum = 1;
+            curCount=1;
         }
 
-        if(curCntNum >= m) return true;
+        maxCount = Math.max(maxCount, curCount);
     }
 
-    return false;
+    return maxCount >= m;
 }
 
-let cntNum = 0;
+let numHappy = 0;
 
-for(let i=0; i<n; i++){
-    if(m===1) cntNum += 2;
+// 가로
+for(let x=0; x<n; x++){
+    seq = grid[x].slice();
 
-    else{
-        if(isHappyRow(i)) cntNum++;
-        if(isHappyCol(i)) cntNum++;
+    if(isHappySequence()){
+        numHappy++;
     }
 }
 
-console.log(cntNum);
+// 세로
+for(let y=0; y<n; y++){
+    for(let x=0; x<n; x++){
+        seq[x] = grid[x][y];
+    }
+
+    if(isHappySequence()){
+        numHappy++;
+    }
+}
+
+console.log(numHappy);
