@@ -6,7 +6,7 @@ const n = str.length;
 
 
 function getLength(str) {
-    let ans = [];
+    let ans = "";
 
     let curC = str[0];
     let curN = 1;
@@ -14,14 +14,16 @@ function getLength(str) {
         if (curC === str[i]) {
             curN++;
         } else {
-            ans.push(curC, String(curN));
+            ans += curC;
+            ans += String(curN);
             curN = 1;
             curC = str[i];
         }
     }
-    ans.push(curC, String(curN));
+    ans += curC;
+    ans += String(curN);
 
-    return ans.join('').length;
+    return ans.length;
 }
 
 function shiftRight(k) {
