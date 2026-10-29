@@ -44,14 +44,6 @@ function moveSnake() {
             [cx, cy] = [nx, ny];
             snake.push([cx, cy]);
             grid[cx][cy] = 1;
-
-
-
-            // console.log('grid----');
-            // for (const row of grid) {
-            //     console.log(row.join(' '));
-            // }
-            // console.log(snake);
         }
     }
 }
@@ -65,12 +57,6 @@ function simulate() {
 
     grid[cx][cy] = 1;
     snake.push([cx, cy]);
-
-    // console.log('grid----');
-    // for (const row of grid) {
-    //     console.log(row.join(' '));
-    // }
-    // console.log(snake);
     moveSnake();
 
     console.log(t);
