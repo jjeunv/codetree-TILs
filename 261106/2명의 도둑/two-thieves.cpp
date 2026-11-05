@@ -9,7 +9,6 @@ int n, m, c;
 int grid[MAX_N][MAX_N];
 int products[MAX_M];
 
-vector<int> selected;
 int w;
 
 int ans;
@@ -22,10 +21,7 @@ void choose(int currIdx, int sum, int value){
         return;
     }
 
-    selected.push_back(products[currIdx]);
     choose(currIdx+1, sum+products[currIdx], value+products[currIdx]*products[currIdx]);
-    selected.pop_back();
-
     choose(currIdx+1, sum, value);
 }
 
